@@ -34,6 +34,11 @@
 #include <TimeLib.h>
 #include <WiFiUdp.h>
 
+#include "VARIABLES.hpp"
+#include "OBJETOS.hpp"
+#include "SPIFFS.hpp"
+#include "Server.hpp"
+
 void setup() {
   // put your setup code here, to run once:
 
