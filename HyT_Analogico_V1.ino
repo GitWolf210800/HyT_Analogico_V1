@@ -17,7 +17,9 @@
 #include <Wire.h>
 
 #include <WiFi.h>
+#include <HTTPClient.h>
 #include <WebServer.h>
+#define LED        2
 //////////////////////////////////////////////////////////
 
 
@@ -37,14 +39,67 @@
 #include "VARIABLES.hpp"
 #include "OBJETOS.hpp"
 #include "SPIFFS.hpp"
-#include "Server.hpp"
+#include "CONFIG_INSTAL.hpp"
+#include "CONFIG_WIFI_RED.hpp"
+
+#define TemperaturaSensor 32
+#define HumedadSensor 39
+
+const char* version = __FILE__;
 
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(115200); //Abriendo puerto Serie
+
+  conexion();
+
+  if (SPIFFS.begin()) {//inicia y corrobora apertura spiffs
+     Serial.println("SPIFFS opened!");
+  }
+
+  u8g2.begin();
+ //u8g2.setFontMode(0);    // enable transparent mode, which is faster
+
+ sensadoSet();
+
+ tempMQTT = millis();
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  for (int i=0 ; i<60 ;i++) {
+    server.handleClient();   //WebServer debe "loopearse" para responder an qcualquier momento
+    client.loop();
+    if (!client.connected()) {//loopeo del MQTT
+      reconnect();
+    }
+    
+    if ((millis()-tempMQTT) >= tiempoMQTT) {
+      jsonPub();
+      tempMQTT = millis();
+    }
+    
+    sensado();
+
+    Fecha_Hora();//lee fecha y hora
+
+    if(m==30000){  
+      drawTem();
+      m++;   
+    }
+    if(m==60000){  
+      drawHum();
+      m=0;   
+    }
+    else{m++;}
+
+    if((hr==0)&&(sg==30)&&(j==1)){
+      Serial.println("reset automatico: ");
+      Serial.print(mn);
+      Serial.print(":");
+      Serial.println(sg);
+      ESP.restart();
+    }
+    
+  }
 
 }

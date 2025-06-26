@@ -73,14 +73,14 @@ void sensadoSet() {
   Serial.println(FCHfloat);
   
 
-  //bme.begin(0x76);          // sensor hum y tem/////////////////////////////////////////////pendiente sensor a medir
+  //// sensor hum y tem/////////////////////////////////////////////pendiente sensor a medir
   delay(100);
-  /*
-  h10=bme.readHumidity();
-  t10=bme.readTemperature();
+  
+  h10=analogRead(HumedadSensor)*FCHfloat;
+  t10=analogRead(TemperaturaSensor)*FCTfloat;
   h1=h2=h3=h4=h5=h6=h7=h8=h9=h10;
   t1=t2=t3=t4=t5=t6=t7=t8=t9=t10;
-  */
+  /**/
  /////////////////////////////////////////////////////////////////////////////////////////////////////
   Serial.print("h1:");
   Serial.print(h1);

@@ -20,9 +20,9 @@ void conexion() {
     Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
     
-  if (MDNS.begin("esp8266")) {/////////???????
+  /*if (MDNS.begin("esp8266")) {/////////???????
     Serial.println("MDNS responder started");
-     }
+     }*/
 //////Aquí fija las acciones del servidor web para cada situación:on (pueden incluirse otras acciones), no found.
   server.on("/", handle_OnConnect);
   server.on("/calibrar", HTTP_POST, guardar_conf);
