@@ -82,11 +82,11 @@ void loop() {
 
     Fecha_Hora();//lee fecha y hora
 
-    if(m==30000){  
+    if(m==15000){  
       drawTem();
       m++;   
     }
-    if(m==60000){  
+    if(m==30000){  
       drawHum();
       m=0;   
     }

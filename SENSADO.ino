@@ -1,7 +1,7 @@
 void sensado() {
   if(millis()-tiempoUltimaLectura >30000){        
-    h10=analogRead(HumedadSensor);
-    t10=analogRead(TemperaturaSensor);
+    h10=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t10=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     
     if (isnan(h10) || isnan(t10) || h10>90 || t10<10){
       h10 = h9;
@@ -31,8 +31,8 @@ void sensado() {
       h9 = h8;
       t9 = h8;
     }
-    h9=analogRead(HumedadSensor);
-    t9=analogRead(TemperaturaSensor);
+    h9=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t9=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h9: ");
@@ -47,8 +47,8 @@ void sensado() {
       h8 = h7;
       t8 = h7;
     }    
-    h8=analogRead(HumedadSensor);
-    t8=analogRead(TemperaturaSensor);
+    h8=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t8=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h8: ");
@@ -63,8 +63,8 @@ void sensado() {
       h7 = h6;
       t7 = h6;
     }    
-    h7=analogRead(HumedadSensor);
-    t7=analogRead(TemperaturaSensor);
+    h7=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t7=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h7: ");
@@ -79,8 +79,8 @@ void sensado() {
       h6 = h5;
       t6 = h5;
     }    
-    h6=analogRead(HumedadSensor);
-    t6=analogRead(TemperaturaSensor);
+    h6=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t6=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h6: ");
@@ -95,8 +95,8 @@ void sensado() {
       h5 = h4;
       t5 = h4;
     }    
-    h5=analogRead(HumedadSensor);
-    t5=analogRead(TemperaturaSensor);
+    h5=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t5=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h5: ");
@@ -111,8 +111,8 @@ void sensado() {
       h4 = h3;
       t4 = h3;
     }    
-    h4=analogRead(HumedadSensor);
-    t4=analogRead(TemperaturaSensor);
+    h4=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t4=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h4: ");
@@ -127,8 +127,8 @@ void sensado() {
       h3 = h2;
       t3 = h2;
     }    
-    h3=analogRead(HumedadSensor);
-    t3=analogRead(TemperaturaSensor);
+    h3=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t3=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h3: ");
@@ -143,8 +143,8 @@ void sensado() {
       h2 = h1;
       t2 = h1;
     }    
-    h2=analogRead(HumedadSensor);
-    t2=analogRead(TemperaturaSensor);
+    h2=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t2=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h2: ");
@@ -159,8 +159,8 @@ void sensado() {
       h1 = h10;
       t1 = h10;
     }    
-    h1=analogRead(HumedadSensor);
-    t1=analogRead(TemperaturaSensor);
+    h1=analogRead(HumedadSensor)*0.02574444025631360723709008669431;
+    t1=analogRead(TemperaturaSensor)*0.0225269343780607247796278158668;
     h=FCHfloat*(h1+h2+h3+h4+h5+h6+h7+h8+h9+h10)/10;
     t=FCTfloat*(t1+t2+t3+t4+t5+t6+t7+t8+t9+t10)/10;
     Serial.print("h1: ");
